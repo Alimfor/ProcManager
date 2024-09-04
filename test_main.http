@@ -1,0 +1,75 @@
+### Получение данных из функции
+POST http://localhost:8000/api/v1/dynamic-query/
+Content-Type: application/json
+
+{
+  "schema": "public",
+  "func_name": "get_users",
+  "limit": 10,
+  "params": [
+    {
+      "column_name": "age",
+      "value": 25
+    },
+    {
+      "column_name": "status",
+      "value": "active"
+    }
+  ]
+}
+
+### Вставка данных через функцию
+POST http://localhost:8000/api/v1/dynamic-query/
+Content-Type: application/json
+
+{
+  "schema": "public",
+  "func_name": "insert_user",
+  "limit": 0,
+  "params": [
+    {
+      "column_name": "name",
+      "value": "John Doe"
+    },
+    {
+      "column_name": "age",
+      "value": 30
+    }
+  ]
+}
+
+### Обновление данных
+POST http://localhost:8000/api/v1/dynamic-query/
+Content-Type: application/json
+
+{
+  "schema": "public",
+  "func_name": "update_user_age",
+  "limit": 0,
+  "params": [
+    {
+      "column_name": "user_id",
+      "value": 1
+    },
+    {
+      "column_name": "new_age",
+      "value": 31
+    }
+  ]
+}
+
+### Удаление данных
+POST http://localhost:8000/api/v1/dynamic-query/
+Content-Type: application/json
+
+{
+  "schema": "public",
+  "func_name": "delete_user",
+  "limit": 0,
+  "params": [
+    {
+      "column_name": "user_id",
+      "value": 1
+    }
+  ]
+}
